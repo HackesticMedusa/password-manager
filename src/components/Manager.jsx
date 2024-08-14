@@ -47,25 +47,34 @@ const Manager = () => {
     }
 
     const savePassword = () => {
-        // if (form.site.length > 3 && form.username.length > 3 && form.password.length > 3) {
-        setPasswordArray([...passwordArray, { ...form, id: uuidv4() }])
-        localStorage.setItem("passwords", JSON.stringify([...passwordArray, { ...form, id: uuidv4() }]))
-        console.log([...passwordArray, form])
-        setform({ site: "", username: "", password: "" })
-        toast('Password Saved!', {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-        });
-        // }
-        // else {
-        //     toast('Error: Password not Saved!');
-        // }
+        if (form.site.length > 3 && form.username.length > 3 && form.password.length > 3) {
+            setPasswordArray([...passwordArray, { ...form, id: uuidv4() }])
+            localStorage.setItem("passwords", JSON.stringify([...passwordArray, { ...form, id: uuidv4() }]))
+            console.log([...passwordArray, form])
+            setform({ site: "", username: "", password: "" })
+            toast('Password Saved!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
+        }
+        else {
+            toast('Error: Password not Saved!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
+        }
     }
 
     const editPassword = (id) => {
@@ -186,7 +195,7 @@ const Manager = () => {
                                     </td>
                                     <td className='py-2 border border-white text-center'>
                                         <div className='flex items-center justify-center'>
-                                            <span>{item.password}</span>
+                                        <span>{"•".repeat(item.password.length)}</span>
                                             <div className='lordiconcopy size-7 cursor-pointer' onClick={() => { copyText(item.password) }}>
                                                 <lord-icon
                                                     style={{ "width": "25px", "height": "25px", "paddingTop": "3px", "paddingLeft": "3px" }}
