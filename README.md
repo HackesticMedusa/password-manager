@@ -1,6 +1,6 @@
 # Password Manager
 
-![Screenshot](screenshot.png)
+![Screenshot](/public/screenshots/screenshot.png)
 
 ## Description
 
@@ -53,4 +53,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Contact
 
 For any inquiries, please contact [HackesticMedusa](https://github.com/HackesticMedusa).
-
